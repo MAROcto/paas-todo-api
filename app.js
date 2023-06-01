@@ -20,7 +20,10 @@ app.get("/todos", async function (req, res) {
   }
   const todoHTML = '<ul>' + 
       todos.map(todo => `
-        <li style="  border: solid 1px white;
+        <li style="
+          float: left;
+          clear: both;
+          border: solid 1px white;
           padding: 5px;
           margin: 5px;
           background-color: #DDDDB7;">
