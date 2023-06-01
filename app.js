@@ -18,7 +18,15 @@ app.get("/todos", async function (req, res) {
   } catch (error) {
     console.error(error)
   }
-  const todoHTML = '<ul>' + todos.map(todo => `<li>${todo.description}</li>`).join('') + '</ul>'
+  const todoHTML = '<ul>' + 
+      todos.map(todo => `
+        <li style="  border: solid 1px white;
+          padding: 5px;
+          margin: 5px;
+          background-color: #DDDDB7;">
+        ${todo.description}</li>`).join('') 
+      + '</ul>'
+
   res.set('Content-Type', 'text/html');
   res.send(Buffer.from(todoHTML))
 })
