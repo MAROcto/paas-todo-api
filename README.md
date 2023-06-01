@@ -1,24 +1,15 @@
 ## Instructions pour les TPs
 
 ### Pré-requis
-- Npm, Node, Nvm
+- Docker, Docker Compose, POSTMAN (ou CURL)
 
-## TP0 : CLI Scalingo
-1. Installer le CLI Scalingo `# curl -O https://cli-dl.scalingo.com/install && bash install`
-2. Créer compte sur [dashboard.scalingo.com](dashboard.scalingo.com) (via GitHub)
-3. Générer une paire de clés dans `~/.ssh` `ssh-keygen -t ed25519` si vous en avez déjà vous pouvez skipper
-4. Ajouter la clé publique sur l'interface Scalingo dans `Settings > Authentication > SSH Keys`
-5. S'authentifier `$ scalingo login`
-
-
-
-## TP1 : MEP Hello World!
-1. Forker et cloner ce projet
-2. Y naviguer en local `cd paas-todo-api`
-3. Créer un fichier `.env` en copiant le contenu de `.env.template`
-4. Lancer l'application en local et s'assurer qu'elle fonctionne (Hello World!)
-   1. `nvm install && nvm use`
-   2. `npm install`
-   3. `npm run start` 
-5. Initialiser l'application Scalingo locale `scalingo create todo-api-[polygramme]`
-6. Déployer sur Scalingo `git push scalingo master` et afficher le Hello World!
+## TP2 : Services externes
+1. Provisionner la base de données en local `docker-compose up -d`
+2. Rattacher votre application à la base de données
+3. Lancer la migration `npm run migrate`
+4. Lancer l'application en local et tester le `POST` et le `GET` /`todos`
+5. Merger votre code sur master (en local)
+6. Préparer votre application pour le déploiement :
+   1. Automatiser la migration graçe au `Procfile`
+   2. Provisionnement d'une base de donnée sur Scalingo
+   3. Déploiement (automatique lors d'un push du master local sur master du repo en remote)

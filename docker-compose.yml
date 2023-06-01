@@ -1,0 +1,35 @@
+---
+volumes:
+  pg-data:
+  redis-data:
+
+services:
+  pg:
+    image: postgres:14-alpine
+    container_name: todo-list-db
+    ports:
+      - "55432:5432"
+    environment:
+      POSTGRES_USER: octo
+      POSTGRES_PASSWORD: octo
+      POSTGRES_DB: todolistdb
+    volumes:
+      - pg-data:/var/lib/postgresql
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: ["redis-server", "--appendonly yes"]
+
+  redis-commander:
+    container_name: redis-cmd
+    hostname: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8901:8081"

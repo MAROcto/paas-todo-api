@@ -4,14 +4,20 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "start:watch": "nodemon app.js"
+    "start:watch": "nodemon app.js",
+    "migrate": "sequelize db:migrate",
+    "migrate:undo": "sequelize db:migrate:undo"
   },
   "author": "OCTO",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "dotenv": "^16.0.1",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.21.4",
+    "sequelize-cli": "^6.4.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
