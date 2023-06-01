@@ -17,7 +17,9 @@ app.get("/todos", async function (req, res) {
   } catch (error) {
     console.error(error)
   }
-  res.send(todos)
+  const todoHTML = '<ul>' + todos.map(todo => `<li>${todo.description}</li>`).join('') + '</ul>'
+  res.set('Content-Type', 'text/html');
+  res.send(Buffer.from(todoHTML))
 })
 
 app.post("/todos", async function (req, res) {
