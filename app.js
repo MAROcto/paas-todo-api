@@ -18,6 +18,7 @@ app.get("/todos", async function (req, res) {
   } catch (error) {
     console.error(error)
   }
+  // Oui j'ai la flemme de mettre dans une balise script ou dans un fichier css et alors ?
   const todoHTML = '<ul>' + 
       todos.map(todo => `
         <li style="
