@@ -24,16 +24,18 @@ app.get("/todos", async function (req, res) {
   } catch (error) {
     console.error(error)
   }
+  
   // Oui j'ai la flemme de mettre dans une balise script ou dans un fichier css et alors ?
+  const liBaseStyle = "float: left;" +
+        "clear: both;" +
+        "border: solid 1px white;" +
+        "padding: 5px;" +
+        "margin: 5px;" +
+        "background-color: #DDDDB7;"
+
   const todoHTML = '<ul>' + 
       todos.map(todo => `
-        <li style="
-          float: left;
-          clear: both;
-          border: solid 1px white;
-          padding: 5px;
-          margin: 5px;
-          background-color: #DDDDB7;">
+        <li style="${liBaseStyle.concat(todo.statut == 'EN_RETARD' ? 'background-color: red;' : '')}">
         ${todo.description}</li>`).join('') 
       + '</ul>'
 

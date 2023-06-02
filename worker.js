@@ -15,6 +15,10 @@ workQueue.process(async (job) => {
   try {
     // Il manque quelque chose ici...  A vous de l'ajouter !
     // Indice : vous aurez besoin de await sequelize.query(...)
+    await sequelize.query("UPDATE todos SET statut ='EN_RETARD' WHERE id = ?",
+        {
+          replacements: [job.data.idTodo]
+        })
   } catch (error) {
     console.error(error)
   }

@@ -6,7 +6,8 @@
     "start": "node app.js",
     "start:watch": "nodemon app.js",
     "migrate": "sequelize db:migrate",
-    "migrate:undo": "sequelize db:migrate:undo"
+    "migrate:undo": "sequelize db:migrate:undo",
+    "start:worker": "node worker.js"
   },
   "author": "OCTO",
   "license": "ISC",
