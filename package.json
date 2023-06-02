@@ -7,7 +7,8 @@
     "start:watch": "nodemon app.js",
     "migrate": "sequelize db:migrate",
     "migrate:undo": "sequelize db:migrate:undo",
-    "start:worker": "node worker.js"
+    "start:worker": "node worker.js",
+    "deleteLateStatus": "node deleteLateStatus.js"
   },
   "author": "OCTO",
   "license": "ISC",
